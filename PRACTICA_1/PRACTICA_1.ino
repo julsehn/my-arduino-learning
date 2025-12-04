@@ -1,34 +1,36 @@
-#define TRIG_PIN 12
-#define ECHO_PIN 11
-int led = 4;
-int espera1 = 500;
-int espera2 = 1000;
+const int EchoPin = 5;
+const int TriggerPin = 6;
+#define CERCA 10
 
 void setup() {
-   Serial.begin(9600);
-   pinMode(TRIG_PIN, OUTPUT);
-   pinMode(ECHO_PIN, INPUT);
-   pinMode(led, OUTPUT);
+  Serial.begin(9600);
+  pinMode(TriggerPin, OUTPUT);
+  pinMode(EchoPin, INPUT);
+  pinMode(CERCA, OUTPUT);
 }
+
 void loop() {
-   int cm = ping(TRIG_PIN, ECHO_PIN);
-   Serial.print("Distancia: ");
-   Serial.println(cm);
-   delay(1000);
-   int ping(int TRIG_PIN, int ECHO_PIN);
-   int (longduration, DistanceCm);
-   digitalWrite(led, LOW);
-   digitalWrite(TRIG_PIN, LOW);
-   delay(400);
-   digitalWrite(TRIG_PIN, HIGH);
-   delay(1000);
-   digitalWrite(TRIG_PIN, LOW);
-   int Duration = pulseIn(ECHO_PIN, HIGH);
-   int distanceCm = (Duration * 10 / 292 / 2);
-   if (distanceCm <= 20){ 
-      digitalWrite(led, HIGH);
-   } else{
-      digitalWrite(led, LOW);
-   }
-   return distanceCm;
+  int cm = ping(TriggerPin, EchoPin);
+  Serial.print("Distancia: ");
+  Serial.println(cm);
+  delay(1000);
+}
+
+int ping(int triggerPin, int echoPin) {
+  long duration;
+  long distanceCm;
+  digitalWrite(CERCA, LOW);
+  digitalWrite(triggerPin, LOW);
+  delayMicroseconds(4);
+  digitalWrite(triggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggerPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distanceCm = duration / 58; // distance in cm (approx)
+  if (distanceCm <= 10) {
+    digitalWrite(CERCA, HIGH);
+  } else {
+    digitalWrite(CERCA, LOW);
+  }
+  return (int)distanceCm;
 }
