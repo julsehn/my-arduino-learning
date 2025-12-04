@@ -1,29 +1,34 @@
-#include "SR04.h"
 #define TRIG_PIN 12
 #define ECHO_PIN 11
-SR04 sr04 = SR04(ECHO_PIN,TRIG_PIN);
-long a;
 int led = 4;
-int espera = 500;
+int espera1 = 500;
+int espera2 = 1000;
 
 void setup() {
    Serial.begin(9600);
+   pinMode(TRIG_PIN, OUTPUT);
+   pinMode(ECHO_PIN, INPUT);
    pinMode(led, OUTPUT);
-   delay(1000);
 }
-
 void loop() {
-   a=sr04.Distance();
-   Serial.print("Distància:");
-   Serial.print(a);
-   Serial.println("cm");
-   if (a <= 10){
-      digitalWrite(led, HIGH);
-      delay(100);
-      digitalWrite(led, LOW);
-      delay(100);
-   } else{
-    analogWrite(led, (a * 255 / 70));
-   }
+   int cm = ping(TRIG_PIN, ECHO_PIN);
+   Serial.print("Distancia: ");
+   Serial.println(cm);
    delay(1000);
+   int ping(int TRIG_PIN, int ECHO_PIN);
+   int (longduration, DistanceCm);
+   digitalWrite(led, LOW);
+   digitalWrite(TRIG_PIN, LOW);
+   delay(400);
+   digitalWrite(TRIG_PIN, HIGH);
+   delay(1000);
+   digitalWrite(TRIG_PIN, LOW);
+   int Duration = pulseIn(ECHO_PIN, HIGH);
+   int distanceCm = (Duration * 10 / 292 / 2);
+   if (distanceCm <= 20){ 
+      digitalWrite(led, HIGH);
+   } else{
+      digitalWrite(led, LOW);
+   }
+   return distanceCm;
 }
