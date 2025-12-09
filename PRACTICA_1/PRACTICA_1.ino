@@ -26,8 +26,8 @@ int ping(int triggerPin, int echoPin) {
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
   duration = pulseIn(echoPin, HIGH);
-  distanceCm = duration / 58; // distance in cm (approx)
-  if (distanceCm <= 10) {
+  distanceCm = duration / 58; // distancia en cm (approx)
+  if (distanceCm <= 30) {
     digitalWrite(CERCA, HIGH);
   } else {
     digitalWrite(CERCA, LOW);
