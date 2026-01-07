@@ -19,10 +19,10 @@ void setup() {
   digitalWrite(REDONE, HIGH);
   digitalWrite(YELLOWONE, LOW);
   digitalWrite(GREENONE, LOW);
+  delay(2000);
 }
 
 void loop(){
-  delay(1500);
   digitalWrite(REDTWO,LOW);
   digitalWrite(YELLOWTWO,LOW);
   digitalWrite(GREENTWO,HIGH);
@@ -37,6 +37,13 @@ void loop(){
   digitalWrite(YELLOWONE,LOW);
   digitalWrite(GREENONE,LOW);
   delay(2000);
+  digitalWrite(REDTWO, HIGH);
+  digitalWrite(YELLOWTWO, LOW);
+  digitalWrite(GREENTWO, LOW);
+  digitalWrite(REDONE, HIGH);
+  digitalWrite(YELLOWONE, LOW);
+  digitalWrite(GREENONE, LOW);
+  delay(1000);
   digitalWrite(REDTWO,HIGH);
   digitalWrite(YELLOWTWO,LOW);
   digitalWrite(GREENTWO,LOW);
@@ -51,4 +58,11 @@ void loop(){
   digitalWrite(YELLOWONE,HIGH);
   digitalWrite(GREENONE,LOW);
   delay(2000);
+  digitalWrite(REDTWO, HIGH);
+  digitalWrite(YELLOWTWO, LOW);
+  digitalWrite(GREENTWO, LOW);
+  digitalWrite(REDONE, HIGH);
+  digitalWrite(YELLOWONE, LOW);
+  digitalWrite(GREENONE, LOW);
+  delay(1000);
 }
