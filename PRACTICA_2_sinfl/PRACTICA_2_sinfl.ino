@@ -36,12 +36,6 @@ void loop(){
   digitalWrite(REDONE,HIGH);
   digitalWrite(YELLOWONE,LOW);
   digitalWrite(GREENONE,LOW);
-  for (int i=0 ; i < 3 ; i ++) {
-    digitalWrite(YELLOWTWO, LOW);
-    delay(500);
-    digitalWrite(YELLOWTWO, HIGH);
-    delay(500);
-  }
   delay(2000);
   digitalWrite(REDTWO, HIGH);
   digitalWrite(YELLOWTWO, LOW);
@@ -49,7 +43,7 @@ void loop(){
   digitalWrite(REDONE, HIGH);
   digitalWrite(YELLOWONE, LOW);
   digitalWrite(GREENONE, LOW);
-  delay(1000);
+  delay(900);
   digitalWrite(REDTWO,HIGH);
   digitalWrite(YELLOWTWO,LOW);
   digitalWrite(GREENTWO,LOW);
@@ -63,12 +57,6 @@ void loop(){
   digitalWrite(REDONE,LOW);
   digitalWrite(YELLOWONE,HIGH);
   digitalWrite(GREENONE,LOW);
-  for (int i ; i < 5 ; i++) {
-    digitalWrite(YELLOWONE, LOW);
-    delay(500);
-    digitalWrite(YELLOWONE, HIGH);
-    delay(500);
-  }
   delay(2000);
   digitalWrite(REDTWO, HIGH);
   digitalWrite(YELLOWTWO, LOW);
