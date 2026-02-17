@@ -8,7 +8,6 @@
 int i;
  
 void setup() {
-  //---set pin direction
   pinMode(ENABLE1,OUTPUT);
   pinMode(DIRA1,OUTPUT);
   pinMode(DIRB1,OUTPUT);
@@ -19,45 +18,32 @@ void setup() {
 }
 
 void loop() {
-  // Activar ambos motores
   digitalWrite(ENABLE1,HIGH);
   digitalWrite(ENABLE2,HIGH);
   
-  // 1. Avanzar en sentit rectilini durant 5 segons
-  Serial.println("Avançant recte durant 5 segons");
   digitalWrite(DIRA1,HIGH);
   digitalWrite(DIRB1,LOW);
   digitalWrite(DIRA2,HIGH);
   digitalWrite(DIRB2,LOW);
   delay(5000);
   
-  // 2. Girar a l'esquerra durant 1 segon
-  Serial.println("Girant a l'esquerra durant 1 segon");
-  digitalWrite(DIRA1,LOW);   // Motor 1 retrocedeix
+  digitalWrite(DIRA1,LOW);
   digitalWrite(DIRB1,HIGH);
-  digitalWrite(DIRA2,HIGH);  // Motor 2 avança
+  digitalWrite(DIRA2,HIGH);
   digitalWrite(DIRB2,LOW);
   delay(1000);
   
-  // 3. Avançar en sentit rectilini durant 5 segons
-  Serial.println("Avançant recte durant 5 segons");
   digitalWrite(DIRA1,HIGH);
   digitalWrite(DIRB1,LOW);
   digitalWrite(DIRA2,HIGH);
   digitalWrite(DIRB2,LOW);
   delay(5000);
   
-  // 4. Girar a la dreta durant 1 segon
-  Serial.println("Girant a la dreta durant 1 segon");
-  digitalWrite(DIRA1,HIGH);  // Motor 1 avança
+  digitalWrite(DIRA1,HIGH);
   digitalWrite(DIRB1,LOW);
-  digitalWrite(DIRA2,LOW);   // Motor 2 retrocedeix
+  digitalWrite(DIRA2,LOW);
   digitalWrite(DIRB2,HIGH);
   delay(1000);
   
-  // Detenir motors
-  digitalWrite(ENABLE1,LOW);
-  digitalWrite(ENABLE2,LOW);
-  delay(2000);
 }
    
