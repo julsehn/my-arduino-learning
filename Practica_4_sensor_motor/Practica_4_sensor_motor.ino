@@ -8,7 +8,7 @@
 #define TRIG_PIN 12
 #define ECHO_PIN 11
 int aleatori = 0;
-SR04 sr04 = SR04(ECHO_PIN,TRIG_PIN);
+SR04 sr04 = SR04(TRIG_PIN, ECHO_PIN);
 long a;
 
 int i;
@@ -21,6 +21,7 @@ void setup() {
   pinMode(DIRA2,OUTPUT);
   pinMode(DIRB2,OUTPUT);
   Serial.begin(9600);
+  randomSeed(analogRead(A0));
   delay(1000);
 }
 
@@ -40,7 +41,7 @@ void loop() {
     digitalWrite(ENABLE2,LOW);
     delay(2000);
     aleatori = random(1,2);
-    if (aleatori = 1){
+      if (aleatori == 1){
       digitalWrite(DIRA1,LOW);
       digitalWrite(DIRB1,HIGH);
       digitalWrite(DIRA2,HIGH);
